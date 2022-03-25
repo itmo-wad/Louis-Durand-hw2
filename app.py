@@ -93,6 +93,21 @@ def profil():
             resp.delete_cookie('userID')
             flash("Disconnected successfully.", 'other')
             return resp
+        else:
+            # Modify profil informations
+            password = request.form["password"]
+            confirmation_password = request.form["c_password"]
+            if not password or not confirmation_password:
+                flash("No info entered", 'other')
+            elif password != confirmation_password:
+                flash("Passwords do not match", 'other')
+            else:
+                query = {"username": user_cookie}
+                new_password = password + PASSWORD_HASH
+                new_password = hashlib.md5(new_password.encode())
+                newvalues = {"$set": {"username": user_cookie, "password": new_password.hexdigest()}}
+                users.update_one(query, newvalues)
+
 
     return render_template('profil.html', name=user_cookie, stylesheet="/static/css/style.css")
 

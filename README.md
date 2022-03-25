@@ -18,7 +18,7 @@ Basic part: Implement authentication feature
 --------
 Advanced part:
 - [x] Implement feature that allows users to create new account, profile will be shown with data respected to each account.
-- [ ] Implement password hashing, logout and password change features
+- [x] Implement password hashing, logout and password change features
 - [ ] Allow users to update profile picture (new user will have a default profile picture)
 - [ ] Allow users to update profile information
 --------
