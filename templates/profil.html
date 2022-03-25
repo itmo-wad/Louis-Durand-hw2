@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework 2 - Profil</title>
+    <link rel="stylesheet" href="{{stylesheet}}">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category=="other" %}
+            <p style="text-align:center">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <h1>Profil</h1>
+    <p>You are connected as {{name}}</p>
+    <div style="text-align:center">
+        <form method="post">
+            <input type="submit" name="disconnect" value="Disconnect">
+        </form>
+    </div>
+</body>
+</html>

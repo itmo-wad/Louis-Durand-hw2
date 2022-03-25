@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework 2 - Connection</title>
+    <link rel="stylesheet" href="{{stylesheet}}">
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category=="other" %}
+            <p style="text-align:center">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <h1>Authentification</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category=="auth" %}
+            <p class="flash-custom">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <div style="text-align:center">
+        <form method="post">
+            <div>
+                <b><label for="username_a">Username</label></b>
+            </div>
+            <div>
+                <input type="text" name="username_a" placeholder="username">
+            </div>
+            <div>
+                <b><label for="password_a">Password</label></b>
+            </div>
+            <div>
+                <input type="password" name="password_a" placeholder="password">
+            </div>
+            <input type="submit" name="auth" value="Create account">
+        </form>
+    </div>
+    <h1>Login</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category=="login" %}
+            <p class="flash-custom">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+    <div style="text-align:center">
+        <form method="post">
+            <div>
+                <b><label for="username_l">Username</label></b>
+            </div>
+            <div>
+                <input type="text" name="username_l" placeholder="username">
+            </div>
+            <div>
+                <b><label for="password_l">Password</label></b>
+            </div>
+            <div>
+                <input type="password" name="password_l" placeholder="password">
+            </div>
+            <input type="submit" name="login" value="Login">
+        </form>
+    </div>
+</body>
+</html>
